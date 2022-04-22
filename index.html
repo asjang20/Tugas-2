@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Table & Form</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.0.2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <!-- Tabel -->
+    <div class="w-50 mx-auto">
+        <!-- Judul -->
+        <h3 class="fs-2 text-center fw-bold">Faktur Penjualan</h3>
+        <!-- Tabel -->
+        <table class="table table-bordered">
+
+            <thead>
+                <tr>
+                    <th colspan="3" class="text-center" >No.#123456890</th>
+                    <th colspan="2" class="text-center">20 Desember 2022</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td colspan="2" rowspan="4">
+                        <span class="fw-bold">Dibayarkan ke:<br></span>
+                        PT.Untung Terus Jalan Beruang No.8 <br>
+                        Bandung, Jawa Barat 40011
+                    </td>
+                    <td colspan="3" >
+                        <strong>Customer: <br></strong> 
+                        Asep Sumasep <br> 
+                        Jalan Terus No.1 <br>
+                        Bandung Jawa Barat 403333
+                    </td>
+                </tr>
+            </tbody>
+
+            <thead>
+                <tr>
+                    <th class="text-center">Barang/Deskripsi</th>
+                    <th class="text-center">Qty</th>
+                    <th class="text-center">@</th>
+                    <th colspan="2" class="text-center">Harga</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td >Buku</td>
+                    <td class="text-center">2</td>
+                    <td class="text-end">5000</td>
+                    <td colspan="2" class="text-end">10000</td>
+                </tr>
+                <tr>
+                    <td>Pulpen</td>
+                    <td class="text-center">3</td>
+                    <td class="text-end">1000</td>
+                    <td colspan="2" class="text-end">3000</td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="text-center"><strong>Subtotal</strong></td>
+                    <td colspan="2" class="text-end">13000</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="text-center"><strong>PPN</strong></td>
+                    <td class="text-center">11%</td>
+                    <td colspan="2" class="text-end">1,430</td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="text-center"><strong>Total</strong></td>
+                    <td colspan="2" class="text-end">14,430</td>
+                </tr>
+
+            </tbody>
+            
+
+        </table>
+    </div>
+
+     <!-- Form -->
+     <div class="w-50 mx-auto mt-5">
+        <!-- Judul -->
+        <h3 class="fs-2 text-center fw-bold">Buku Tamu</h3>
+        <form action="" method="get">
+            <div class="mb-3">
+                <label for="noHp" class="form-label">No Hp</label>
+                <input type="tel" class="form-control" id="noHp" placeholder="6281XXXXXX">
+              </div>
+              <div class="mb-3">
+                <label for="pesan" class="form-label">Isi Pesan</label>
+                <textarea class="form-control" id="pesan" rows="3"></textarea>
+              </div>
+            <div class="mb-3">
+                <button class="btn btn-primary" type="submit" id="submit">Kirim</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        let submit = document.querySelector("#submit");
+
+        submit.addEventListener('click', function(){
+            let noHp = document.querySelector("#noHp").value;
+            let pesan = document.querySelector("#pesan").value;
+
+            let win = window.open('https://api.whatsapp.com/send?phone=' + noHp + '&text=' + pesan);
+                if (win) {
+                    win.focus();
+                } else {
+                    alert('Please allow popups for this website');
+                }
+                location.href('./');
+        });
+    </script>
+
+
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
